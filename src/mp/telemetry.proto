@@ -1,8 +1,8 @@
 syntax = "proto3";
 package mp.pb;
 
-import "types.proto";
-import "state.proto";
+import "mp/types.proto";
+import "mp/state.proto";
 
 // TODO: Specify units of each field
 message SensorData {
