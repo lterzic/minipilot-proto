@@ -1,0 +1,1 @@
+# Minipilot - Protocol Buffers definitions
