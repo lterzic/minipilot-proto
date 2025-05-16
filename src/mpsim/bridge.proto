@@ -1,5 +1,5 @@
 syntax = "proto3";
-package mpsim.pb;
+package pb.mpsim;
 
 import "mpsim/get_sim_data.proto";
 import "mpsim/read_acc.proto";

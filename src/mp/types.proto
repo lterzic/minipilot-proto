@@ -1,5 +1,5 @@
 syntax = "proto3";
-package mp.pb;
+package pb.mp;
 
 // TODO: Define vehicle ID, timestamp, session ID, host ID, ...
 

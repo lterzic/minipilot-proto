@@ -1,5 +1,5 @@
 syntax = "proto3";
-package mp.pb;
+package pb.mp;
 
 import "mp/vehicles/copter_command.proto";
 

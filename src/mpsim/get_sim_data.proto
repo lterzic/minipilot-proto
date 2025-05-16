@@ -1,5 +1,5 @@
 syntax = "proto3";
-package mpsim.pb;
+package pb.mpsim;
 
 import "mp/telemetry.proto";
 
@@ -8,5 +8,5 @@ message RequestGetSimData {
 }
 
 message ResponseGetSimData {
-    mp.pb.TelemetryMessage sim_data = 1;
+    mp.TelemetryMessage sim_telemetry = 1;
 }
