@@ -1,0 +1,49 @@
+syntax = "proto3";
+package pb.mp;
+
+import "mp/types.proto";
+
+message Battery {
+    // Volts
+    float voltage   = 1;
+    // Amperes
+    float current   = 2;
+    // Calculated based on current voltage
+    // and battery datasheet specifications
+    float percent   = 3;
+}
+
+message Barometer {
+    // Temperature in Kelvin
+    float air_temperature   = 1;
+    // TODO: Determine units
+    float air_pressure      = 2;
+}
+
+message Accelerometer {
+    // Raw acceleration data as read from the sensor
+    Vector3f raw        = 1;
+    // Acceleration as used by the flight controller
+    // in the global reference frame in units of meter/second^2
+    Vector3f corrected  = 2;
+}
+
+message Gyroscope {
+    // Raw angular velocity data as read from the sensor
+    Vector3f raw        = 1;
+    // Angular velocity as used by the flight controller
+    // in the body frame in units of radian/second
+    Vector3f corrected  = 2;
+    // Current drift determined by the flight controller
+    // Same units as the corrected value
+    Vector3f drift      = 3;
+}
+
+// TODO: Add magnetometer, GPS, time of flight, antenna?
+
+message Sensors {
+    Battery battery             = 1;
+    Barometer barometer         = 2;
+    Accelerometer accelerometer = 3;
+    Gyroscope gyroscope         = 4;
+}

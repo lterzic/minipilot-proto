@@ -8,5 +8,5 @@ message RequestGetSimData {
 }
 
 message ResponseGetSimData {
-    mp.TelemetryMessage sim_telemetry = 1;
+    mp.Telemetry sim_telemetry = 1;
 }

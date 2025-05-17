@@ -1,35 +1,28 @@
 syntax = "proto3";
 package pb.mp;
 
-import "mp/types.proto";
+import "mp/sensor.proto";
 import "mp/state.proto";
 
-// TODO: Specify units of each field
-message SensorData {
-    float battery_voltage   = 1;
-    float air_temperature   = 2;
-    float air_pressure      = 3;
-    float humidity          = 4;
+message Telemetry {
+    // Globaly unique vehicle id
+    uint32 vehicle_id           = 1;
+    // Session ID unique for this vehicle
+    uint32 session_id           = 2;
+    // Message ID unique within the current session
+    uint32 message_id           = 3;
+    // Time in milliseconds since the start of the session
+    uint32 time_since_start     = 4;
 
-    // Just in case
-    reserved 5, 6, 7, 8, 9, 10;
+    // Future-proof
+    reserved 5, 6, 7, 8;
 
-    Vector3f acc_raw        = 11;
-    Vector3f acc_corrected  = 12;
-    Vector3f gyro_raw       = 13;
-    Vector3f gyro_corrected = 14;
-    Vector3f gyro_bias      = 15;
-    // Magnetometer, GPS, ...
-}
-
-message TelemetryMessage {
-    // TODO: Add message id for the current session
-    // and the timestamp
-    // TODO: Add vehicle id
-
-    State state                 = 1;
-    Coordinates coordinates     = 2;
-    SensorData sensor_data      = 3;
+    // State - always sent
+    State state                 = 9;
+    // TODO: Determine if sensor data should be vehicle specific
+    Sensors sensors             = 10;
+    // Sent if the vehicle has GPS
+    Coordinates coordinates     = 11;
     
     // TODO: Add vehicle specific telemetry as oneof
 }
